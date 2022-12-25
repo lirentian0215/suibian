@@ -1,41 +1,9 @@
 proxies:
-  - name: HK
-    type: snell
-    server: 2.58.64.238
-    port: 46094
-    psk: c72444
-    obfs-opts:
-        mode: tls
-        host: www.microsoft.com
-  - name: JP-IIJ
-    type: snell
-    server: 167.88.185.74
-    port: 47892
-    psk: c72444
-    obfs-opts:
-        mode: tls
-        host: www.microsoft.com
-  - name: US
-    type: snell
-    server: 154.29.134.6
-    port: 35607
-    psk: c72444
-    obfs-opts:
-        mode: tls
-        host: www.microsoft.com
-  - name: JP
-    type: snell
-    server: 13.231.4.230
-    port: 80
-    psk: 72444
-    obfs-opts:
-        mode: http
-        host: www.microsoft.com
-        
+ 
   - {"type":"vless","name":"hicairo.com_1","server":"v2rayn.lirentian0215.repl.co","port":443,"uuid":"12eb9ff5-597a-326b-0e65-0b716d44d684","skip-cert-verify":true,"udp":true,"tls":true,"network":"ws","servername":"v2rayN.lirentian0215.repl.co","ws-opts":{"path":"/vless","headers":{"host":"v2rayN.lirentian0215.repl.co"}}}
   - {"type":"vmess","name":"hicairo.com_2","ws-opts":{"path":"/vmess","headers":{"host":"v2rayN.lirentian0215.repl.co"}},"server":"v2rayN.lirentian0215.repl.co","port":"443","uuid":"12eb9ff5-597a-326b-0e65-0b716d44d684","alterId":"0","cipher":"auto","network":"ws","tls":true}
 proxy-groups:
-- { name: "Load", type: load-balance, proxies: [ 'HK', 'JP-IIJ', 'US','JP', 'hicairo.com_1', 'hicairo.com_2' ], url: 'http://www.gstatic.com/generate_204', interval: 150, strategy: round-robin }
+- { name: "Load", type: load-balance, proxies: ['hicairo.com_1', 'hicairo.com_2' ], url: 'http://www.gstatic.com/generate_204', interval: 150, strategy: round-robin }
 
 rules:
  - GEOIP, CN, DIRECT
